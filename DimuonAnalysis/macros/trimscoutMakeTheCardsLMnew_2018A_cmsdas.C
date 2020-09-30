@@ -8,11 +8,11 @@
 #include <TTreeReaderValue.h>
 #include "TLorentzVector.h"
 
-void trimscoutMakeTheCardsLMnew_2018C_cmsdas(string treepath = "scout_2.root", const char* outfilename = "./scout_cmsdas.root", bool isMC=false) {
+void trimscoutMakeTheCardsLMnew_2018A_cmsdas(string treepath = "scout_2.root", const char* outfilename = "./scout_cmsdas.root", bool isMC=false) {
  
    vector<string> filesToRun;
    vector<bool> isData;
-   string dirIn="/eos/cms/store/group/phys_exotica/darkPhoton/jakob/newProd/2018/ScoutingRunC/ScoutingCaloMuon/crab_20200617_174734/200617_154740/0000/";
+   string dirIn="/eos/cms/store/group/phys_exotica/darkPhoton/jakob/newProd/2018/ScoutingRunA/ScoutingCaloMuon/crab_20200617_174717/200617_154725/0000/";
    //string dirIn="";
    filesToRun.push_back(dirIn.append(treepath));isData.push_back(true);
    TFile* outfile = new TFile(outfilename, "RECREATE");
@@ -219,12 +219,12 @@ THE LOW MASS TRIGGER TO MEASURE FAKE: ID 18 - 20 [ONLY IN FROM RUN 305405]
 
 	//if( (  sqrt( ((*vtxX)[0] - BSx)*((*vtxX)[0] - BSx) + ((*vtxY)[0] - BSy)*((*vtxY)[0] - BSy) )/sqrt( ((*vtxYError)[0]*(*vtxYError)[0]) + ((*vtxXError)[0]*(*vtxXError)[0]))  ) < 1.2 ) passPVconstraintSig = true;
 
-
-        //L represents the displacement vertex of the dimuons from the beam spot
-        L=0.8
-        if (sqrt ( ((*vtxX)[0] - BSx)*((*vtxX)[0] - BSx) + ((*vtxY)[0] - BSy)*((*vtxY)[0] - BSy) ) > L ) passPVconstraintSig = true;
-
 	
+	//L represents the displacement vertex of the dimuons from the beam spot
+	L=0.8
+	if (sqrt ( ((*vtxX)[0] - BSx)*((*vtxX)[0] - BSx) + ((*vtxY)[0] - BSy)*((*vtxY)[0] - BSy) ) > L ) passPVconstraintSig = true;
+
+
 	if(m1ch*m2ch<0. && passPVconstraintSig && m1pt>slidePt1 && m2pt>slidePt2 && maxEta<1.9) dimuonMass->Fill(mass);
 	//if(m1ch*m2ch<0. && passPVconstraintSig && m1pt>slidePt1 && m2pt>slidePt2 && maxEta<1.9 && mass>2.7 && mass<3.4) dimuonMassJPsi->Fill(mass);
 

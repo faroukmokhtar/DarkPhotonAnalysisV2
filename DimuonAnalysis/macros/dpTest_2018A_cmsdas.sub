@@ -1,11 +1,11 @@
-executable = thejob_2018C_cmsdas.sh
+executable = thejob_2018A_cmsdas.sh
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = ""
 transfer_output_files = ""
 arguments = "scout_$(ProcId).root /afs/cern.ch/user/f/fmokhtar/CMSDASMuonScouting/CMSSW_10_1_6/src/DarkPhotonAnalysisV2/DimuonAnalysis/macros/"
 universe = vanilla
-queue 263
+queue 581
 +JobFlavour = "longlunch"
 
 
